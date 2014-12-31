@@ -1,0 +1,23 @@
+<h1>BAA</h1>
+<h3><%= t('Bank Account Analytics') %></h3>
+<hr/>
+<div class="row">
+  <div class="col-md-6">
+    <div class="well">
+      <h2><%= t('Login') %></h2>
+
+      <div>
+        <%= render partial: "login_form", locals: {user: @user} %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well">
+      <h2><%= t('Register') %></h2>
+
+      <div>
+        <%= render partial: "register_form", locals: {user: @user} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+class UserNotFoundException < StandardError
+end

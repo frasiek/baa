@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  password_hash: MyString
+  active: false
+  create_at: 2014-12-30 20:00:18
+
+two:
+  email: MyString
+  password_hash: MyString
+  active: false
+  create_at: 2014-12-30 20:00:18

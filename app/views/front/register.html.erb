@@ -1,0 +1,27 @@
+<h1>BAA</h1>
+<h3><%= t('Bank Account Analytics') %></h3>
+<hr/>
+<div class="row">
+  <div class="col-md-6">
+    <div class="well">
+      <h2><%= t('Register') %></h2>
+
+      <div>
+        <%= render partial: "register_form", locals: {user: @user} %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= t('Error occurred:') %></h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  login: "login"
+  register: "register"
+  'Bank Account Analytics' : 'Bank Account Analytics'

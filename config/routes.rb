@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  get ':controller/:action'
+  get ':locale/:controller/:action'
+
+  get '/login' => 'front#login'
+  get '/register' => 'front#register'
+  get '/logout' => 'front#logout'
+
+  post "/login" => "front#login", :as => :login_form
+  post "/register" => "front#register", :as => :register_form
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'front#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

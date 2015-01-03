@@ -15,8 +15,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/account"><%= t('User account') %></a></li>
-        <li class="dropdown">
+        <li <%= ('user_account'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+          <a href="/account"><%= t('User account') %></a></li>
+        <li class="dropdown <%= ('reports'.in?(@selected_menu_items)) ? 'active' : '' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('Reports') %>
             <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -24,13 +25,16 @@
             <li><a href="#"><%= t('report 2') %></a></li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown <%= ('data'.in?(@selected_menu_items)) ? 'active' : '' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('Data') %>
             <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><%= t('Bank accounts') %></a></li>
-            <li><a href="#"><%= t('Import transactions') %></a></li>
-            <li><a href="#"><%= t('Operation categories') %></a></li>
+            <li <%= ('bank_accounts'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+              <a href="<%= url_for :bank_accounts %>"><%= t('Bank accounts') %></a></li>
+            <li <%= ('import_transactions'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+              <a href="#"><%= t('Import transactions') %></a></li>
+            <li <%= ('operation_categories'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+              <a href="#"><%= t('Operation categories') %></a></li>
           </ul>
         </li>
       </ul>
@@ -42,4 +46,5 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
+<%= render 'front/flash_messanger' %>
 <div class="container-fluid">

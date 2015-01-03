@@ -6,3 +6,16 @@
   padding-top: 10px;
   clear: both;
 }
+
+.table td:not(:last-child) {
+  line-height: 34px;
+}
+
+.panel-heading h1,
+.panel-heading h2,
+.panel-heading h3,
+.panel-heading h4,
+.panel-heading h5 {
+  margin: 0;
+  display: inline-block;
+}

@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150103124025) do
 
-  create_table "user", primary_key: "user_id", force: :cascade do |t|
-    t.string "email", limit: 250, null: false
-    t.string "password_hash", limit: 80, null: false
-    t.boolean "active", limit: 1, default: false, null: false
-    t.datetime "create_at", null: false
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "name", limit: 255
+    t.integer "user_id", limit: 4, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "user", ["email"], name: "email_UNIQUE", unique: true, using: :btree
+  add_index "bank_accounts", ["user_id"], name: "fk_bank_accounts_users1", using: :btree
 
   create_table "user_login_history", primary_key: "user_login_history_id", force: :cascade do |t|
     t.integer "user_id", limit: 4, null: false
@@ -31,5 +31,15 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "user_login_history", ["user_id"], name: "fk_baa_user_login_history_baa_user", using: :btree
 
-  add_foreign_key "user_login_history", "user", primary_key: "user_id", name: "fk_baa_user_login_history_baa_user"
+  create_table "users", primary_key: "user_id", force: :cascade do |t|
+    t.string "email", limit: 250, null: false
+    t.string "password_hash", limit: 250, null: false
+    t.boolean "active", limit: 1, default: false, null: false
+    t.datetime "create_at", null: false
+  end
+
+  add_index "users", ["email"], name: "email_UNIQUE", unique: true, using: :btree
+
+  add_foreign_key "bank_accounts", "users", primary_key: "user_id", name: "fk_bank_accounts_users1"
+  add_foreign_key "user_login_history", "users", primary_key: "user_id", name: "fk_baa_user_login_history_baa_user"
 end

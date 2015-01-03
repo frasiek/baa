@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_login_history
   has_many :bank_accounts
+  has_many :transactions
   after_find :clear_password, :if => :clear_password?
   attr_accessor :new_password, :new_password_confirmation
   validates_confirmation_of :new_password, :if => :password_changed?

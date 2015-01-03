@@ -32,7 +32,7 @@
             <li <%= ('bank_accounts'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
               <a href="<%= url_for :bank_accounts %>"><%= t('Bank accounts') %></a></li>
             <li <%= ('import_transactions'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
-              <a href="#"><%= t('Import transactions') %></a></li>
+              <a href="<%= url_for :transactions %>"><%= t('Import transactions') %></a></li>
             <li <%= ('operation_categories'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
               <a href="#"><%= t('Operation categories') %></a></li>
           </ul>

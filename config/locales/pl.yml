@@ -279,3 +279,7 @@ pl:
   'Import transactions' : 'Import transakcji'
   'Operation categories' : 'Kategoryzacja operacji'
   'Logout' : 'Wyloguj'
+  preview : 'Podgląd'
+  import_transaction_file : 'Import pliku transakcji'
+  Back : 'Powrót'
+  import : 'Importuj'

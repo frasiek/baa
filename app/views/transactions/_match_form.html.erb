@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <% 1.upto(data[0].length) do |col| -%>
+          <th>
+            <select name="col[<%= col %>]">
+              <option value="">-pomiń-</option>
+              <option value="accounting_date">Data księgowania</option>
+              <option value="currency_date">Data waluty</option>
+              <option value="details_recipient">Szczegóły odbiorcy/nadawcy</option>
+              <option value="account_recipient">Rachunek odbiorcy/nadawcy</option>
+              <option value="title">Tytułem</option>
+              <option value="value">Kwota operacji</option>
+              <option value="currency">Waluta</option>
+              <option value="ref_no">Numer referencyjny</option>
+              <option value="type">Typ operacji</option>
+            </select>
+          </th>
+      <% end -%>
+    </tr>
+    <% data.each do |line| -%>
+        <tr>
+          <% line.each do |cell| -%>
+              <td>
+                <%= cell %>
+              </td>
+          <% end %>
+        </tr>
+    <% end -%>
+  </table>
+</div>

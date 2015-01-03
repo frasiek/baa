@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :bank_accounts
+
   get ':controller/:action'
   get ':locale/:controller/:action'
 
   get '/login' => 'front#login'
   get '/register' => 'front#register'
   get '/logout' => 'front#logout'
+  get '/dashboard' => 'dashboard#index', :as => :dashboard_home
 
   post "/login" => "front#login", :as => :login_form
   post "/register" => "front#register", :as => :register_form

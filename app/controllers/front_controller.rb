@@ -10,7 +10,7 @@ class FrontController < ApplicationController
       params = user_params
       if user_id = @auth_user.log_in(params[:email], params[:password])
         session[:user_session_name] = user_id
-        redirect_to '/report'
+        redirect_to '/dashboard'
       else
         @user.errors[:email] = t('Wrong email or password')
       end

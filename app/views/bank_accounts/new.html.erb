@@ -1,0 +1,12 @@
+<%= render 'dashboard/top_menu' %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1><%= t('new_bank_accounts') -%></h1>
+    <%= link_to 'Back', bank_accounts_path, class: 'btn btn-default pull-right' -%>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+</div>

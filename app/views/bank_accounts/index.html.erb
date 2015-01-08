@@ -1,0 +1,43 @@
+<%= render 'dashboard/top_menu' %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h1><%= t('bank_accounts') -%></h1>
+    <%= link_to 'New Bank account', new_bank_account_path, class: 'btn btn-success pull-right' -%>
+    <div class="clearfix"></div>
+  </div>
+
+  <% if @bank_accounts.length == 0 -%>
+      <div class="panel-body">
+        <p>
+          <%= t('no_accounts_found') -%>
+        </p>
+      </div>
+  <% else -%>
+      <!-- Table -->
+      <table class="table">
+        <colgroup>
+          <col>
+          <col style="width:150px">
+        </colgroup>
+        <thead>
+        <tr>
+          <th><%= t('Name') %></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @bank_accounts.each do |bank_account| %>
+            <tr>
+              <td><%= bank_account.name %></td>
+              <td>
+                <%= link_to t('Edit'), edit_bank_account_path(bank_account), class: 'btn btn-info' %>
+                <%= link_to t('Destroy'), bank_account, method: :delete, class: 'btn btn-warning', data: {confirm: t('confirm')} %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end -%>
+</div>

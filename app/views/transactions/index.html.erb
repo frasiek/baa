@@ -1,0 +1,45 @@
+<%= render 'dashboard/top_menu' %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h1><%= t('transaction_files') -%></h1>
+    <%= link_to t('new_transaction_file'), new_transaction_path, class: 'btn btn-success pull-right' -%>
+    <div class="clearfix"></div>
+  </div>
+  <% if @transactions.length == 0 -%>
+      <div class="panel-body">
+        <p>
+          <%= t('no_transaction_files_found') -%>
+        </p>
+      </div>
+  <% else -%>
+      <!-- Table -->
+      <table class="table">
+        <colgroup>
+          <col>
+          <col>
+          <col style="width:150px">
+        </colgroup>
+        <thead>
+        <tr>
+          <th><%= t('File') %></th>
+          <th><%= t('Bank account') %></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @transactions.each do |transaction| %>
+            <tr>
+              <td><%= transaction.file[/[^\/]+$/] %></td>
+              <td><%= transaction.bank_account.name %></td>
+              <td>
+                <%= link_to t('Import'), edit_transaction_path(transaction), class: 'btn btn-success'  %>
+                <%= link_to t('Destroy'), transaction, method: :delete, class: 'btn btn-warning', data: {confirm: t('confirm')} %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end -%>
+</div>

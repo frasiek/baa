@@ -1,0 +1,62 @@
+<%= render 'dashboard/top_menu' %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1><%= t('import_transaction_file') -%></h1>
+    <%= link_to t('Back'), transactions_path, class: 'btn btn-default pull-right' -%>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="panel-body">
+    <%= form_tag '/transactions/'+@transaction.id.to_s+'/edit', method: 'post' do -%>
+        <div class="field">
+          <label for="separator"><%= t('separator') %></label><br>
+          <select name="separator">
+            <option <%= (params[:separator]=='tab') ? 'selected' : '' %> value="tab">tab</option>
+            <option <%= (params[:separator]==',') ? 'selected' : '' %> value=",">,</option>
+            <option <%= (params[:separator]==';') ? 'selected' : '' %> value=";">;</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="encoding"><%= t('encoding') %></label><br>
+          <select name="encoding">
+            <option <%= (params[:encoding]=='WINDOWS-1250') ? 'selected' : '' %> value="WINDOWS-1250">WINDOWS1250</option>
+            <option <%= (params[:encoding]=='WINDOWS-1252') ? 'selected' : '' %> value="WINDOWS-1252">WINDOWS1252</option>
+            <option <%= (params[:encoding]=='UTF-8') ? 'selected' : '' %> value="UTF-8">UTF-8</option>
+          </select>
+        </div>
+        <div class="actions">
+          <%= submit_tag t('preview'), class: 'btn btn-primary' %>
+        </div>
+    <% end -%>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><%= t('import_transaction_file_contents') -%></h2>
+
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <%= form_tag '/transactions/'+@transaction.id.to_s+'/import', method: 'post' do -%>
+        <% if @file == false -%>
+            <p>
+              <%= t('cannot_load_preset') %>
+            </p>
+        <% else -%>
+            <%= hidden_field_tag :separator, params[:separator] %>
+            <%= hidden_field_tag :encoding, params[:encoding] %>
+            <div class="field">
+              <label for="skip_rows"><%= t('skip_rows') %></label><br>
+              <%= number_field_tag :skip_rows, 0 %><br><br>
+            </div>
+            <div class="field">
+                <%= render('match_form', {data: @file}) %>
+                <div class="actions">
+                  <%= submit_tag t('import'), class: 'btn btn-success' %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

@@ -17,7 +17,7 @@ class TransactionsController < UserApplication
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.all_mine(@auth_user.user_id)
   end
 
   # GET /transactions/1

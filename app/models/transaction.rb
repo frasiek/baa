@@ -15,6 +15,6 @@ class Transaction < ActiveRecord::Base
   end
 
   def self.all_mine(user_id)
-    File.where(user_id: user_id)
+    Transaction.where(user_id: user_id)
   end
 end

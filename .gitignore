@@ -45,3 +45,4 @@ config/secrets.yml
 *.bowerrc
 bower.json
 >>>>>>> 6844d5d7b3094b9be6728047b87c2a92410ba2a8
+.idea/

@@ -13,4 +13,8 @@ class Transaction < ActiveRecord::Base
     File.delete(@protected_file_name)
     return true
   end
+
+  def self.all_mine(user_id)
+    File.where(user_id: user_id)
+  end
 end

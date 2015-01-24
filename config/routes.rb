@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post '/transactions/:id/edit' => 'transactions#edit', :as => :transaction_import_form
   post '/transactions/:id/import' => 'transactions#import', :as => :transaction_import
 
+  get '/categorize' => 'categorizes#index', :as => :categorize
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

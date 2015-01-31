@@ -283,3 +283,13 @@ pl:
   import_transaction_file : 'Import pliku transakcji'
   Back : 'Powrót'
   import : 'Importuj'
+  operations: "Nazwy operacji"
+  no_operations_found: "Nie znaleziono operacji, zaimportuj wyciąg z banku."
+  Edit: "Edytuj"
+  Destroy: "Usuń"
+  confirm: "Potwierdź"
+  add_categorie: "Dodaj kategorię"
+  name: "Nazwa"
+  Close: "Zamknij"
+  add: "Dodaj"
+  key_word: "Słowo kluczowe"

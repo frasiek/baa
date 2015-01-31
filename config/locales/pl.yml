@@ -293,3 +293,7 @@ pl:
   Close: "Zamknij"
   add: "Dodaj"
   key_word: "Słowo kluczowe"
+  report_line: "Raport porównawczy"
+  report_pie: "Raport procentowy"
+  line_chart: "Wykres liniowy"
+  pie_chart: "Wykres kołowy"

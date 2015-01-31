@@ -21,8 +21,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('Reports') %>
             <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#"><%= t('report 1') %></a></li>
-            <li><a href="#"><%= t('report 2') %></a></li>
+            <li <%= ('report-line'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+            <a href="<%= url_for :report1 %>"><%= t('report_line') %></a></li>
+            <li <%= ('report-pie'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
+            <a href="<%= url_for :report2 %>"><%= t('report_pie') %></a></li>
           </ul>
         </li>
         <li class="dropdown <%= ('data'.in?(@selected_menu_items)) ? 'active' : '' %>">

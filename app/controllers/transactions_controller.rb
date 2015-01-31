@@ -106,7 +106,7 @@ class TransactionsController < UserApplication
 
     def save_file
       name =  params[:transaction][:file].original_filename
-      directory = "uploaded/usr" + @auth_user.user_id.to_s + "/"+Time.now.getutc.to_s
+      directory = "uploaded/usr" + @auth_user.user_id.to_s + "/"+Time.now.to_i.to_s
       # create the file path
       path = File.join(directory, name)
       require 'fileutils'

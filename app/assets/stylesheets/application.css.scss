@@ -1,5 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery.jqplot.min";
+
+#chart{
+  width: 100%;
+  min-height: 500px;
+}
 
 .form-group,
 .actions {

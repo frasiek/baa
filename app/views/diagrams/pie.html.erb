@@ -2,7 +2,12 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h1><%= t('line_chart') -%></h1>
+    <h1 data-type="pie"><%= t('pie_chart') -%></h1>
+    <% if @filters.length == 0 %>
+        <h2><%= t('set_categories') %></h2>
+    <% else %>
+        <%= render 'filters' -%>
+    <% end %>
   </div>
-
+  <div id="chart"></div>
 </div>

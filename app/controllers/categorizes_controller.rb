@@ -20,8 +20,15 @@ class CategorizesController < UserApplication
     render json: {'success'=>'success'}
   end
 
+  def delCategorie()
+    Categories.where(:id => params[:id], :user_id => @auth_user.user_id).destroy_all
+    redirect_to :back
+  end
+
   private
   def set_menu_items
     @selected_menu_items.push('data', 'operation_categories')
   end
+
+
 end

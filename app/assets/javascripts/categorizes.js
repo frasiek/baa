@@ -37,6 +37,7 @@ categorizerCls.prototype.submitForm = function(){
          if(response.success == "success"){
              $("#addcategoriemodal").modal('hide');
              $("#add-category-form input").val("");
+             location.reload()
          } else {
              alert(response.message)
          }

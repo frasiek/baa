@@ -19,11 +19,14 @@ Rails.application.routes.draw do
 
   get '/categorize' => 'categorizes#index', :as => :categorize
 
-  post 'categorize/addCategorie.json' => 'categorizes#addCategorie'
+  post '/categorize/addCategorie.json' => 'categorizes#addCategorie'
 
   get '/report/line' => 'diagrams#line', :as => :report1
   get '/report/pie' => 'diagrams#pie', :as => :report2
 
+  get '/categorize/delCategorie' => 'categorizes#delCategorie', :as => :delete_categorie
+
+  post '/report/data.json' => 'diagrams#data'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -297,3 +297,8 @@ pl:
   report_pie: "Raport procentowy"
   line_chart: "Wykres liniowy"
   pie_chart: "Wykres kołowy"
+  from: "od"
+  to: "do"
+  set_categories: "Ustaw kategorie aby generować wykresy."
+  filter: "filtruj"
+  filter_it: "filtruj"

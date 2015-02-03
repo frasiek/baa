@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get ':controller/:action'
   get ':locale/:controller/:action'
 
+  get '/confirm/:user/:hash' => 'front#confirm', :as => :register_path
+
   get '/login' => 'front#login'
   get '/register' => 'front#register'
   get '/logout' => 'front#logout'

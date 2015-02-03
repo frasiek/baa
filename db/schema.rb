@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20150103154648) do
 
   add_index "bank_accounts", ["user_id"], name: "fk_bank_accounts_users1_idx", using: :btree
 
+  create_table "categories", force: :cascade do |t|
+    t.string  "keyword", limit: 250, null: false
+    t.string  "name",    limit: 250
+    t.integer "user_id", limit: 4,   null: false
+  end
+
+  add_index "categories", ["keyword", "user_id"], name: "uniq_key", unique: true, using: :btree
+  add_index "categories", ["user_id"], name: "fk_categories_users1_idx", using: :btree
+
   create_table "operation_types", force: :cascade do |t|
     t.string "type", limit: 45
   end
@@ -43,6 +52,14 @@ ActiveRecord::Schema.define(version: 20150103154648) do
   add_index "operations", ["bank_accounts_id"], name: "fk_operations_bank_accounts1_idx", using: :btree
   add_index "operations", ["type_id"], name: "fk_operations_operation_types1_idx", using: :btree
   add_index "operations", ["user_id"], name: "fk_operations_users1_idx", using: :btree
+
+  create_table "operations_has_categories", id: false, force: :cascade do |t|
+    t.integer "operation_id", limit: 8, null: false
+    t.integer "categorie_id", limit: 4, null: false
+  end
+
+  add_index "operations_has_categories", ["categorie_id"], name: "fk_operations_has_categories_categories1_idx", using: :btree
+  add_index "operations_has_categories", ["operation_id"], name: "fk_operations_has_categories_operations1_idx", using: :btree
 
   create_table "transactions", force: :cascade do |t|
     t.text     "file",            limit: 65535, null: false
@@ -74,9 +91,12 @@ ActiveRecord::Schema.define(version: 20150103154648) do
   add_index "users", ["email"], name: "email_UNIQUE", unique: true, using: :btree
 
   add_foreign_key "bank_accounts", "users", primary_key: "user_id", name: "fk_bank_accounts_users1", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "categories", "users", primary_key: "user_id", name: "fk_categories_users1"
   add_foreign_key "operations", "bank_accounts", column: "bank_accounts_id", name: "fk_operations_bank_accounts1", on_update: :cascade, on_delete: :cascade
   add_foreign_key "operations", "operation_types", column: "type_id", name: "fk_operations_operation_types1"
   add_foreign_key "operations", "users", primary_key: "user_id", name: "fk_operations_users1", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "operations_has_categories", "categories", column: "categorie_id", name: "fk_operations_has_categories_categories1"
+  add_foreign_key "operations_has_categories", "operations", name: "fk_operations_has_categories_operations1"
   add_foreign_key "transactions", "bank_accounts", name: "fk_transactions_2", on_update: :cascade, on_delete: :cascade
   add_foreign_key "transactions", "users", primary_key: "user_id", name: "fk_transactions_1", on_update: :cascade, on_delete: :cascade
   add_foreign_key "user_login_history", "users", primary_key: "user_id", name: "fk_baa_user_login_history_baa_user", on_update: :cascade, on_delete: :cascade

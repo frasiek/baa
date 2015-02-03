@@ -27,7 +27,7 @@
         <tbody>
         <% @operations.each do |operation| %>
             <tr>
-              <td><%= operation.details_recipient %> <%= render :partial => 'categories', locals: {operation: operation, user_id: @auth_user.user_id} %></td>
+              <td><%= operation.details_recipient %>  <%= render :partial => 'categories', locals: {operation: operation, user_id: @auth_user.user_id} %></td>
             </tr>
         <% end %>
         </tbody>

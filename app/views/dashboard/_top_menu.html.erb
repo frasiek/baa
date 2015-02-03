@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li <%= ('user_account'.in?(@selected_menu_items)) ? 'class=active' : '' %>>
-          <a href="/account"><%= t('User account') %></a></li>
+          <!--<a href="/account"><%= t('User account') %></a></li>-->
         <li class="dropdown <%= ('reports'.in?(@selected_menu_items)) ? 'active' : '' %>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t('Reports') %>
             <span class="caret"></span></a>

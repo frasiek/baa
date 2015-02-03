@@ -1,11 +1,11 @@
 <form class="form-inline" id="filters">
   <div class="form-group">
     <label class="sr-only" for="date_from"><%= t('from') %></label>
-    <input type="date" name="date_from" class="form-control" id="date_from" placeholder="<%= t('from') %>">
+    <input type="date" name="date_from" class="form-control" id="date_from" placeholder="<%= t('from') %>" value="<%= (Time.now - 1.months).strftime("%Y-%m-%d") -%>"/>
   </div>
   <div class="form-group">
     <label class="sr-only" for="date_to"><%= t('to') %></label>
-    <input type="date" name="date_to" class="form-control" id="date_to" placeholder="<%= t('to') %>">
+    <input type="date" name="date_to" class="form-control" id="date_to" placeholder="<%= t('to') %>" value="<%= Time.now.strftime("%Y-%m-%d") -%>"/>
   </div>
   <div class="checkbox">
     <% for cat in @filters do %>

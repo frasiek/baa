@@ -27,11 +27,28 @@ class FrontController < ApplicationController
     if request.post?
       @user = User.new(user_params)
       if @user.save
-        UserMailer.registration_mail(@user).deliver_now
+        UserMailer.registration_mail(@auth_user, request.host).deliver_now
         flash[:success] = t('Account was added, you need to confirm e-mail address.')
         redirect_to '/'
       end
     end
+  end
+
+  def confirm()
+    User.show_password!
+    u = User.find(params[:user])
+    User.hide_password!
+    session[:u] = u
+    if BCrypt::Password.new(params[:hash]+"."+params[:format]) == params[:user]
+      u.active = 1;
+      u.save
+      flash[:success] = t('Account_confirmed')
+      redirect_to '/'
+    else
+      flash[:warning] = t('Wrong_hash')
+      redirect_to '/'
+    end
+
   end
 
   private

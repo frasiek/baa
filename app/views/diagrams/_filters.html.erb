@@ -1,4 +1,4 @@
-<form class="form-inline" id="filters">
+<form class="form-inline"  id="filters">
   <div class="form-group">
     <label class="sr-only" for="date_from"><%= t('from') %></label>
     <input type="date" name="date_from" class="form-control" id="date_from" placeholder="<%= t('from') %>" value="<%= (Time.now - 1.months).strftime("%Y-%m-%d") -%>"/>
@@ -14,5 +14,5 @@
         </label>
     <% end %>
   </div>
-  <button type="submit" class="btn btn-default"><%= t('filter_it') %></button>
+  <input type="submit" class="btn btn-default" value="<%= t('filter_it') %>"/>
 </form>

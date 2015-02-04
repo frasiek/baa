@@ -13,8 +13,8 @@
 
 $(document).ready(function () {
     var diagramObj = null
-    $("#filters").submit(function (e) {
-        e.preventDefault();
+    $(document).on("submit", "form#filters", function (event) {
+        event.preventDefault();
         var type = $("[data-type]").attr("data-type");
         $.post("/report/data.json", {type: type, filters: $(this).serialize()}, function (response) {
             if (diagramObj === null) {
@@ -24,6 +24,7 @@ $(document).ready(function () {
             }
             diagramObj.draw();
         }, 'json');
+        return false;
     });
 });
 

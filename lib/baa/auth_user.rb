@@ -1,6 +1,15 @@
 class AuthUser < Object
   attr_reader :user, :user_id
 
+
+  def id
+    @user_id
+  end
+
+  def email
+    @user.email
+  end
+
   # @return [AuthUser]
   def initialize(userId)
     @user = nil

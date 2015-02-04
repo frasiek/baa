@@ -302,3 +302,6 @@ pl:
   set_categories: "Ustaw kategorie aby generować wykresy."
   filter: "filtruj"
   filter_it: "filtruj"
+  Account_confirmed: "Konto zostało aktywowane."
+  Wrong_hash: "Błędny kod aktywacyjny"
+  dashboard: "Dashboard"

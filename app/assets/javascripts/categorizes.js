@@ -7,11 +7,11 @@ function categorizerCls(){
 
 categorizerCls.prototype.init = function(){
     var t = this;
-    $(".addCategorie").click(function(e){
+    $(document).on("click", ".addCategorie",function(e){
         e.preventDefault();
         t.addCategorie();
     });
-    $(".add-category-submit").click(function(e){
+    $(document).on("click", ".add-category-submit", function(e){
         e.preventDefault();
         t.submitForm();
     });

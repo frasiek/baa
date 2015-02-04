@@ -20,7 +20,7 @@ $(document).ready(function () {
             if (diagramObj === null) {
                 diagramObj = new diagram(type, response);
             } else {
-                diagramObj.setData(response)
+                diagramObj.setData(type,response)
             }
             diagramObj.draw();
         }, 'json');
@@ -33,7 +33,8 @@ function diagram(type, data) {
     this.data = data;
 }
 
-diagram.prototype.setData = function (data) {
+diagram.prototype.setData = function (type, data) {
+    this.type = type;
     this.data = data;
 }
 

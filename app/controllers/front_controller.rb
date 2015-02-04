@@ -27,7 +27,7 @@ class FrontController < ApplicationController
     if request.post?
       @user = User.new(user_params)
       if @user.save
-        UserMailer.registration_mail(@auth_user, request.host).deliver_now
+        UserMailer.registration_mail(@user, request.host).deliver_now
         flash[:success] = t('Account was added, you need to confirm e-mail address.')
         redirect_to '/'
       end
